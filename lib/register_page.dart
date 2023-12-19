@@ -1,6 +1,8 @@
 import 'package:demo1/components/my_button.dart';
 import 'package:demo1/components/my_text_field.dart';
+import 'package:demo1/services%20/auth/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
@@ -18,7 +20,32 @@ class _RegisterPageState extends State<RegisterPage> {
   final ConfirmpasswordCotroller = TextEditingController();
 
   //sign up
-  void signUp() {}
+  void signUp() async{
+    if (passwordCotroller.text != ConfirmpasswordCotroller.text){
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Passwords do not match!")
+          ),
+        );
+        return;
+      }
+
+      //get auth service 
+      final authService = Provider.of<AuthService>(context, listen: false);
+
+      try{
+        await authService.signUpWithEmailandPassword(
+          emailController.text, 
+          passwordCotroller.text,
+          );
+      }catch (e){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.toString()),
+            )
+        );
+      }
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Icon(
                   Icons.message,
                   size: 120,
-                  color: Colors.grey[900],
+                  color: Color.fromARGB(255, 12, 76, 108),
                 ),
                 const SizedBox(
                   height: 40,
@@ -109,7 +136,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Text(
                         'Log in now!',
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16, 
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 12, 76, 108)
+                            ),
                       ),
                     ),
                   ],

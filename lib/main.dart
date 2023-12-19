@@ -1,6 +1,7 @@
 
+import 'package:demo1/Log_in_page.dart';
 import 'package:demo1/firebase_options.dart';
-import 'package:demo1/home_page.dart';
+import 'package:demo1/services%20/auth/auth_gate.dart';
 import 'package:demo1/services%20/auth/auth_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const AuthGate(),
     );
  }
 }

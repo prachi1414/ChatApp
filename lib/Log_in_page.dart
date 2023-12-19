@@ -56,7 +56,7 @@ class _Log_in_pageState extends State<Log_in_page> {
                 Icon(
                   Icons.message, 
                   size: 120,
-                  color: Colors.grey[900],
+                  color: Color.fromARGB(255, 12, 76, 108),
                   ),
                   const SizedBox(height: 40,),
             
@@ -67,7 +67,7 @@ class _Log_in_pageState extends State<Log_in_page> {
                 "Welcome Back!",
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.grey[700]
+                  color: Colors.black
                 ) ,
               ),
 
@@ -97,8 +97,10 @@ class _Log_in_pageState extends State<Log_in_page> {
 
                 const SizedBox(height: 30,),
                  
-                  MyButton(onTap: signIn, text: "Sign In"),
-               
+                  MyButton(
+                     onTap: signIn,
+                     text: "Sign In",
+                    ),
                
                       const SizedBox(height: 40,),               
                 //not member
@@ -113,7 +115,8 @@ class _Log_in_pageState extends State<Log_in_page> {
                             'Register now!',
                           style: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 12, 76, 108)
                           ),
                           ),
                         ),
