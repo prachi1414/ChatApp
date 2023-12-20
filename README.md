@@ -1,6 +1,6 @@
-# demo1
+# ChatApp
 
-A new Flutter project.
+I am excited to launch my first flutter based Chat Application over here. Which includes dart language with flutter framework and for authentication I have used firebase authentication.
 
 ## Getting Started
 
